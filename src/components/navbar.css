@@ -1,0 +1,62 @@
+/* Navbar container */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #111;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* App title */
+nav h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Links + search container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Navbar links */
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #fff;
+  color: #111;
+}
+
+/* Search input */
+.nav-links input {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  background-color: #222;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.nav-links input::placeholder {
+  color: #aaa;
+}
+
+.nav-links input:focus {
+  background-color: #333;
+}

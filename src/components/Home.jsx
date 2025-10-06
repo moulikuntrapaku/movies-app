@@ -6,7 +6,9 @@ export default function Home({ addToWatchlist, searchTerm }) {
 
   useEffect(() => {
     const getMovieRequest = async () => {
-      const url = "https://www.omdbapi.com/?s=star&apikey=429d5e5f";
+      const apiKey = import.meta.env.VITE_API_KEY;
+      const url = `https://www.omdbapi.com/?s=star&apikey=${apiKey}`;
+
       const response = await fetch(url);
       const data = await response.json();
       if (data.Search) setMovies(data.Search);

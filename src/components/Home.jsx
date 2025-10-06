@@ -1,30 +1,29 @@
 import { useEffect, useState } from "react";
-import './home.css'
+import MovieList from "./MovieList";
 
-export default function Home(){
-    const [movies, updateMovies] = useState([])
+export default function Home({ addToWatchlist, searchTerm }) {
+  const [movies, setMovies] = useState([]);
 
-        
+  useEffect(() => {
     const getMovieRequest = async () => {
-        const url = "http://www.omdbapi.com/?s=star&apikey=429d5e5f"
-        const response = await fetch(url)
+      const url = "https://www.omdbapi.com/?s=star&apikey=429d5e5f";
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.Search) setMovies(data.Search);
+    };
+    getMovieRequest();
+  }, []);
 
-        const responseJson = await response.json()
-        updateMovies(responseJson.Search)
-    }
+  // Filter locally fetched movies
+  const filteredMovies = movies.filter(movie =>
+    movie.Title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-    useEffect(()=>{
-        getMovieRequest()
-    },[])
-
-    return(
-        <div className="movie-container">
-            {movies.map((movie) => (
-                <div className="movie-card" key={movie.imdbID}>
-                    <img src={movie.Poster} alt="Movie-Poster"/>
-                    <p>{movie.Title}</p>
-                </div>
-            ))}
-        </div>
-    )
+  return (
+    <MovieList
+      movies={filteredMovies}
+      buttonAction={addToWatchlist}
+      buttonLabel="Add to Watchlist"
+    />
+  );
 }

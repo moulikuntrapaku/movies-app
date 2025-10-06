@@ -1,0 +1,93 @@
+/* Container for all movies */
+.movie-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: #0f0f0f;
+  min-height: 100vh;
+}
+
+/* Individual movie card */
+.movie-card {
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect */
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Movie poster */
+.movie-card img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: transform 0.3s;
+}
+
+/* Slight zoom on poster hover */
+.movie-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Movie title */
+.movie-card p {
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  font-weight: 500;
+}
+
+/* Add / Remove button */
+.add-btn {
+  padding: 0.4rem 0.8rem;
+  margin-bottom: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #ff3f6c;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Button hover effect */
+.add-btn:hover {
+  background-color: #ff1e4b;
+  transform: scale(1.05);
+}
+
+/* No movies found text */
+.movie-container p,
+.no-movies {
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  grid-column: 1 / -1;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .movie-card img {
+    height: 200px;
+  }
+
+  .nav-links input {
+    width: 120px;
+  }
+}

@@ -1,11 +1,11 @@
 /* Container for all movies */
 .movie-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 250px));
   gap: 1.5rem;
   padding: 2rem;
   background-color: #0f0f0f;
-  min-height: 100vh;
+  justify-content: center;
 }
 
 /* Individual movie card */
